@@ -32,16 +32,27 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.4/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.4/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.4/js/buttons.print.min.js"></script>
 <script>
     $(document).ready(function() {
     $('#users').DataTable({
         'serverSide': true,
+        dom: 'Bfrtip',
         'ajax': '{{ url("api/users") }}',
         'columns': [
             {data: 'id'},
             {data: 'name'},
             {data: 'email'},
             {data: 'btn'},
+        ],
+        buttons: [
+        'excel'
         ],
         language: {
             'url' : '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
